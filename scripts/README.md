@@ -1,6 +1,15 @@
 # Verification Scripts
 
-This directory contains independent verification scripts for the Borel-IUT framework, providing computational evidence using **GENUINE IUT construction** (not assuming independence).
+This directory contains independent verification scripts for the Borel-IUT framework, providing computational evidence using **REAL, COMPLETE, STEP-BY-STEP IUT construction** (no approximations).
+
+## Real vs. Approximate Computations
+
+**Previous versions** used approximations. **Current versions** implement:
+- **Complete Hodge theater construction** step-by-step
+- **Real Θ-link matrix computation** with actual p-adic arithmetic
+- **Actual error extraction** from computed matrices
+- **Rigorous correlation computation** from real data
+- **Full documentation** of every step
 
 ## Important: Genuine vs. Ad Hoc Simulations
 
@@ -12,6 +21,67 @@ This directory contains independent verification scripts for the Borel-IUT frame
 - Results are reported honestly, whatever they are
 
 ## Scripts
+
+### `real_iut_construction.py` ⭐ **NEW: Complete Real Construction**
+
+**REAL, COMPLETE, STEP-BY-STEP IUT construction** with full documentation.
+
+**Usage:**
+```bash
+python scripts/real_iut_construction.py
+```
+
+**What it does:**
+- Constructs Hodge theaters step-by-step (no approximations)
+- Computes actual Θ-link matrices in Borel subgroup
+- Extracts real diagonal entries and errors
+- Computes correlation from actual data
+- Documents every step in detail
+
+**Key features:**
+- Step 1: Initialize Hodge theater structure
+- Step 2: Construct each Θ-link matrix M^(j) individually
+  - Compute Frobenius component (real unit computation)
+  - Compute multiplicative component (real structure)
+  - Construct complete Borel matrix
+  - Extract diagonal entries
+  - Compute actual errors
+- Step 3: Accumulate errors
+- Step 4: Compute correlation from real data
+- Step 5: Compute cancellation constant
+
+### `real_padic_computation.sage` ⭐ **NEW: Complete p-adic Construction**
+
+**REAL p-adic IUT construction** using SageMath's rigorous p-adic arithmetic.
+
+**Usage:**
+```bash
+sage scripts/real_padic_computation.sage
+```
+
+**What it does:**
+- Complete p-adic field initialization (Q_p with precision)
+- Real p-adic unit computation
+- Actual Θ-link matrix construction in p-adic arithmetic
+- Real error extraction with p-adic valuation
+- Correlation computation from p-adic data
+
+**Requirements:**
+- SageMath (install from https://www.sagemath.org/)
+
+### `complete_benchmark.py` ⭐ **NEW: Complete Benchmark**
+
+**Complete benchmark** using real IUT constructions.
+
+**Usage:**
+```bash
+python scripts/complete_benchmark.py
+```
+
+**What it does:**
+- Runs real IUT construction for multiple curves and primes
+- Computes actual correlation coefficients
+- Provides complete statistical summary
 
 ### `verify_correlation.py`
 
