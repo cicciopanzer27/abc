@@ -114,7 +114,7 @@ def verify_cancellation_vs_correlation_figure(results):
     # Verifica che ci sia almeno un punto con ρ = 0
     has_zero = any(abs(rho) < 1e-6 for rho in rhos)
     if has_zero:
-        print(f"   [OK] Trovato punto con rho ≈ 0 (K = 4)")
+        print(f"   [OK] Trovato punto con rho ~ 0 (K = 4)")
     else:
         print(f"   [WARN] Nessun punto con rho = 0 trovato")
     
