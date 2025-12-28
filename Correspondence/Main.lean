@@ -1,7 +1,7 @@
 /-!
 # Frobenioid-Borel Correspondence
 
-This module proves the main theorem: Frobenioid morphisms admit matrix 
+This module proves the main theorem: Frobenioid morphisms admit matrix
 representations in the Borel subgroup.
 -/
 
@@ -19,11 +19,11 @@ structure Representation (F : Type*) [Category F] where
   /-- The representation map -/
   map : ∀ {X Y : F}, (X ⟶ Y) → GL (Fin 2) K
   /-- Functoriality -/
-  functorial : ∀ {X Y Z : F} (f : X ⟶ Y) (g : Y ⟶ Z), 
+  functorial : ∀ {X Y Z : F} (f : X ⟶ Y) (g : Y ⟶ Z),
     map (f ≫ g) = map f * map g
 
 /-- Main theorem: Frobenioid-Borel correspondence -/
-theorem frobenioid_borel_correspondence 
+theorem frobenioid_borel_correspondence
     (ρ : Representation F)
     (X Y : F)
     (φ : X ⟶ Y) :

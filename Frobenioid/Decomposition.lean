@@ -12,8 +12,8 @@ namespace Frobenioid
 theorem canonical_decomposition {F : Type*} [Category F] [Frobenioid F]
     (X Y : F) (φ : X ⟶ Y) :
     ∃! (φ_Frob : X ⟶ Y) (φ_mult : X ⟶ Y),
-      φ_Frob ∈ Frobenioid.Frob F ∧ 
-      φ_mult ∈ Frobenioid.Mult F ∧ 
+      φ_Frob ∈ Frobenioid.Frob F ∧
+      φ_mult ∈ Frobenioid.Mult F ∧
       φ = φ_Frob ≫ φ_mult :=
   Frobenioid.decomposition X Y φ
 

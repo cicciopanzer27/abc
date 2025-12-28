@@ -38,7 +38,7 @@ def cancellation_constant (ρ : ℝ) : ℝ :=
 
 /-- Correlation coefficient bound -/
 theorem correlation_bound (ρ : ℝ) (hρ : -0.1 ≤ ρ ∧ ρ ≤ 0.1) :
-    3.31 ≤ cancellation_constant ρ ∧ 
+    3.31 ≤ cancellation_constant ρ ∧
     cancellation_constant ρ ≤ 4.94 :=
   sorry
 

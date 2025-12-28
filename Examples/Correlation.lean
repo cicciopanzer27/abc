@@ -26,7 +26,7 @@ def elliptic_curve_example : ℝ :=
 
 /-- Verification that ρ ≈ 0 -/
 theorem correlation_near_zero :
-    -0.01 ≤ elliptic_curve_example ∧ 
+    -0.01 ≤ elliptic_curve_example ∧
     elliptic_curve_example ≤ 0.01 :=
   by norm_num
 
@@ -36,7 +36,7 @@ def cancellation_constant_example : ℝ :=
 
 /-- Verification: K ≈ 4 -/
 theorem cancellation_constant_verification :
-    3.9 ≤ cancellation_constant_example ∧ 
+    3.9 ≤ cancellation_constant_example ∧
     cancellation_constant_example ≤ 4.1 :=
   by norm_num
 

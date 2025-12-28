@@ -10,7 +10,7 @@ import Frobenioid.Basic
 namespace Tests
 
 /-- The Verify_Borel_Structure algorithm -/
-def verify_borel_structure 
+def verify_borel_structure
     {F : Type*} [Category F] [Frobenioid F]
     (ρ : Correspondence.Representation F)
     (X Y : F)

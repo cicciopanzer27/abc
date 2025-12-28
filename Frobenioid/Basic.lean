@@ -24,7 +24,7 @@ class Frobenioid (F : Type u) [Category.{v} F] where
   /-- The class of multiplicative morphisms -/
   Mult : Set (∀ X Y : F, (X ⟶ Y))
   /-- Every morphism admits a unique Frobenius-multiplicative decomposition -/
-  decomposition : ∀ (X Y : F) (φ : X ⟶ Y), 
+  decomposition : ∀ (X Y : F) (φ : X ⟶ Y),
     ∃! (φ_Frob : X ⟶ Y) (φ_mult : X ⟶ Y),
       φ_Frob ∈ Frob ∧ φ_mult ∈ Mult ∧ φ = φ_Frob ≫ φ_mult
 

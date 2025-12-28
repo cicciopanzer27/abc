@@ -1,7 +1,7 @@
 /-!
 # Spectral Decoupling Theorem
 
-This module proves that perturbations of the unipotent radical do not affect 
+This module proves that perturbations of the unipotent radical do not affect
 the diagonal spectrum in Borel matrices.
 -/
 
@@ -13,7 +13,7 @@ namespace Borel
 variable {K : Type*} [Field K]
 
 /-- Spectral decoupling theorem -/
-theorem spectral_decoupling (M : Matrix (Fin 2) (Fin 2) K) 
+theorem spectral_decoupling (M : Matrix (Fin 2) (Fin 2) K)
     (hM : M 1 0 = 0) -- M is upper triangular
     (E : Matrix (Fin 2) (Fin 2) K)
     (hE : E 1 0 = 0) : -- E is upper triangular
