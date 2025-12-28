@@ -49,8 +49,8 @@ abc/
 
 ## Dependencies
 
-- **Lean 4** (version 4.9.0)
-- **mathlib4** (for algebraic group theory, Borel subgroups, etc.)
+- **Lean 4** (version 4.9.0) - specified in `lean-toolchain`
+- **mathlib4** (latest master branch, compatible with Lean 4.9.0) - specified in `lakefile.lean`
 
 ## Installation
 
