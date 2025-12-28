@@ -62,7 +62,7 @@ def compute_rho {p : ℕ} [Fact (Nat.Prime p)]
 def generate_hodge_theater_13 : HodgeTheater 13 :=
   -- Simulated error sequences based on IUT construction
   -- In practice, these would come from actual Hodge theater computation
-  let epsilon_11 := List.range 12 |>.map (fun j => 
+  let epsilon_11 := List.range 12 |>.map (fun j =>
     (j^2 : ℚ_[13]) * (1 + (1 : ℚ_[13]) / 13))
   let epsilon_22 := List.range 12 |>.map (fun _ => (1 : ℚ_[13]))
   {
