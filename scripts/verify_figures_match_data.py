@@ -17,7 +17,7 @@ def load_results():
     """Carica i risultati computazionali."""
     results_path = os.path.join(os.path.dirname(__file__), 'computation_results.json')
     if not os.path.exists(results_path):
-        print(f"❌ ERRORE: {results_path} non trovato")
+        print(f"[FAIL] ERRORE: {results_path} non trovato")
         return None
     
     with open(results_path, 'r') as f:
@@ -32,7 +32,7 @@ def verify_correlation_distribution_figure(results):
     
     # Verifica che ci siano abbastanza dati
     assert len(rhos) == 21, f"Dovrebbero esserci 21 risultati, trovati {len(rhos)}"
-        print(f"   [OK] Numero di risultati: {len(rhos)}")
+    print(f"   [OK] Numero di risultati: {len(rhos)}")
     
     # Verifica statistiche
     mean_rho = np.mean(rhos)
@@ -160,7 +160,7 @@ def verify_error_sequences_figure(results):
 
 def verify_rho_across_primes_figure(results):
     """Verifica che fig_rho_across_primes.pdf usi dati reali"""
-    print("\n5. Verifica figura: ρ attraverso primi")
+    print("\n5. Verifica figura: rho attraverso primi")
     print("-" * 70)
     
     # Raggruppa per curva
