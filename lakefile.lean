@@ -2,7 +2,6 @@ import Lake
 open Lake DSL
 
 package «borel-iut» where
-  version := "0.1.0"
   leanVersion := "4.9.0"
   dependencies := #[{
     name := "mathlib",

@@ -22,7 +22,8 @@ def correlation_coefficient (ε₁ ε₂ : List ℝ) : ℝ :=
 /-- Example: Elliptic curve y² = x³ + x + 1 -/
 def elliptic_curve_example : ℝ :=
   -- Computed value: ρ ≈ -0.0021
-  -0.0021
+  -- See CorrelationComputation.lean for actual computation
+  CorrelationComputation.rho_computed
 
 /-- Verification that ρ ≈ 0 -/
 theorem correlation_near_zero :

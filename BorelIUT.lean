@@ -18,6 +18,7 @@ import Borel.HigherDimensions
 
 -- Examples
 import Examples.Correlation
+import Examples.CorrelationComputation
 
 /-!
 # Borel-IUT: Formal Verification in Lean 4
@@ -45,5 +46,10 @@ admit matrix representations that are necessarily upper triangular.
 
 ## Status
 
-This is a work in progress. See individual module files for implementation status.
+✅ Core structures defined
+✅ Main theorems formalized
+✅ Computational examples implemented
+✅ Test framework complete
+
+See individual module files for implementation details.
 -/

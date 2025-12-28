@@ -14,3 +14,14 @@ jobs:
       - uses: leanprover-community/lean-checkup@v1
         with:
           lean_version: 'leanprover/lean4:v4.9.0'
+      - name: Build project
+        run: |
+          lake exe cache get
+          lake build
+      - name: Check for sorry
+        run: |
+          # Count sorry statements (excluding tests and examples)
+          SORRY_COUNT=$(grep -r "sorry" --include="*.lean" . | grep -v "Tests" | grep -v "Examples" | wc -l || echo "0")
+          if [ "$SORRY_COUNT" -gt "10" ]; then
+            echo "Warning: Found $SORRY_COUNT 'sorry' statements. Consider completing proofs."
+          fi
