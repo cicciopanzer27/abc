@@ -37,8 +37,8 @@ def verify_eigenvalue_stability():
         "Ratio should match theoretical prediction"
     
     print("[OK] Eigenvalue stability figure verified")
-    print(f"  Generic GL2: O(√ε) scaling confirmed")
-    print(f"  Borel: O(ε) scaling confirmed")
+    print(f"  Generic GL2: O(sqrt(eps)) scaling confirmed")
+    print(f"  Borel: O(eps) scaling confirmed")
     print(f"  Ratio matches theoretical prediction")
     
     return True
