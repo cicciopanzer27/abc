@@ -2,7 +2,6 @@ import Lake
 open Lake DSL
 
 package «borel-iut» where
-  leanVersion := "4.9.0"
   dependencies := #[{
     name := "mathlib",
     src := Source.git "https://github.com/leanprover-community/mathlib4" "master"
