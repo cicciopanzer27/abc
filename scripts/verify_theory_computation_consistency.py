@@ -27,28 +27,28 @@ def load_results():
 
 def verify_rho_bounds(results):
     """Verifica che ρ sia nel range teorico [-1, 1]"""
-    print("\n1. Verifica range teorico di ρ:")
+    print("\n1. Verifica range teorico di rho:")
     print("-" * 70)
     
     all_valid = True
     for r in results:
         rho = r['rho']
         if not (-1 <= rho <= 1):
-            print(f"   ❌ ρ = {rho:.6f} fuori range teorico [-1, 1]")
+            print(f"   [FAIL] rho = {rho:.6f} fuori range teorico [-1, 1]")
             all_valid = False
         else:
-            print(f"   ✓ ρ = {rho:.6f} nel range teorico")
+            print(f"   [OK] rho = {rho:.6f} nel range teorico")
     
     if all_valid:
-        print("\n   ✓ Tutti i valori di ρ sono nel range teorico [-1, 1]")
+        print("\n   [OK] Tutti i valori di rho sono nel range teorico [-1, 1]")
     else:
-        print("\n   ❌ Alcuni valori di ρ sono fuori range teorico")
+        print("\n   [FAIL] Alcuni valori di rho sono fuori range teorico")
     
     return all_valid
 
 def verify_K_formula(results):
     """Verifica che K = 4/(1+ρ)² sia calcolato correttamente"""
-    print("\n2. Verifica formula K = 4/(1+ρ)²:")
+    print("\n2. Verifica formula K = 4/(1+rho)^2:")
     print("-" * 70)
     
     all_valid = True
@@ -63,17 +63,17 @@ def verify_K_formula(results):
         max_error = max(max_error, error)
         
         if error > 1e-5:
-            print(f"   ❌ K mismatch per ρ = {rho:.6f}:")
+            print(f"   [FAIL] K mismatch per rho = {rho:.6f}:")
             print(f"      Computed: {K_computed:.6f}, Theoretical: {K_theoretical:.6f}")
             print(f"      Error: {error:.2e}")
             all_valid = False
         else:
-            print(f"   ✓ K formula corretta per ρ = {rho:.6f} (error: {error:.2e})")
+            print(f"   [OK] K formula corretta per rho = {rho:.6f} (error: {error:.2e})")
     
     if all_valid:
-        print(f"\n   ✓ Tutte le formule K sono corrette (max error: {max_error:.2e})")
+        print(f"\n   [OK] Tutte le formule K sono corrette (max error: {max_error:.2e})")
     else:
-        print(f"\n   ❌ Alcune formule K sono errate (max error: {max_error:.2e})")
+        print(f"\n   [FAIL] Alcune formule K sono errate (max error: {max_error:.2e})")
     
     return all_valid
 
@@ -102,10 +102,10 @@ def verify_error_scaling(results):
                 print(f"   ⚠ Warning: errors_22 ({max_22:.6f}) > errors_11 ({max_11:.6f})")
                 print(f"      Curve: {r['curve']}, Prime: {r['prime']}")
             else:
-                print(f"   ✓ Scaling verificato: max_11={max_11:.6f}, max_22={max_22:.6f}")
+                print(f"   [OK] Scaling verificato: max_11={max_11:.6f}, max_22={max_22:.6f}")
     
     if all_valid:
-        print("\n   ✓ Scaling degli errori verificato")
+        print("\n   [OK] Scaling degli errori verificato")
     else:
         print("\n   ⚠ Alcuni warning sullo scaling")
     
@@ -128,7 +128,7 @@ def verify_statistics(results):
     min_K = np.min(Ks)
     max_K = np.max(Ks)
     
-    print(f"   ρ statistics:")
+    print(f"   rho statistics:")
     print(f"      Mean: {mean_rho:.6f}")
     print(f"      Std:  {std_rho:.6f}")
     print(f"      Range: [{min_rho:.6f}, {max_rho:.6f}]")
@@ -143,7 +143,7 @@ def verify_statistics(results):
         print(f"      Framework potrebbe non essere valido per alcuni casi")
         return False
     
-    print(f"\n   ✓ Statistiche consistenti (K >= 1 per tutti i casi)")
+    print(f"\n   [OK] Statistiche consistenti (K >= 1 per tutti i casi)")
     return True
 
 def verify_covariance_formula(results):
@@ -166,17 +166,17 @@ def verify_covariance_formula(results):
         error = abs(cov_computed - cov_theoretical)
         
         if error > 1e-5:
-            print(f"   ❌ Covarianza errata per curve={r['curve']}, p={r['prime']}:")
+            print(f"   [FAIL] Covarianza errata per curve={r['curve']}, p={r['prime']}:")
             print(f"      Computed: {cov_computed:.6f}, Theoretical: {cov_theoretical:.6f}")
             print(f"      Error: {error:.2e}")
             all_valid = False
         else:
-            print(f"   ✓ Covarianza corretta (error: {error:.2e})")
+            print(f"   [OK] Covarianza corretta (error: {error:.2e})")
     
     if all_valid:
-        print("\n   ✓ Tutte le covarianze sono calcolate correttamente")
+        print("\n   [OK] Tutte le covarianze sono calcolate correttamente")
     else:
-        print("\n   ❌ Alcune covarianze sono errate")
+        print("\n   [FAIL] Alcune covarianze sono errate")
     
     return all_valid
 
@@ -202,9 +202,9 @@ def main():
     
     print("\n" + "=" * 70)
     if all_passed:
-        print("✓ TUTTE LE VERIFICHE DI CONSISTENZA PASSATE!")
+        print("[OK] TUTTE LE VERIFICHE DI CONSISTENZA PASSATE!")
     else:
-        print("❌ ALCUNE VERIFICHE FALLITE")
+        print("[FAIL] ALCUNE VERIFICHE FALLITE")
     print("=" * 70)
     
     return all_passed

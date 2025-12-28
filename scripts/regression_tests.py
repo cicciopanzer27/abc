@@ -26,7 +26,7 @@ def load_results():
     """Carica i risultati computazionali."""
     results_path = os.path.join(os.path.dirname(__file__), 'computation_results.json')
     if not os.path.exists(results_path):
-        print(f"❌ ERRORE: {results_path} non trovato")
+        print(f"[FAIL] ERRORE: {results_path} non trovato")
         print("   Eseguire prima: python scripts/run_complete_computations.py")
         return None
     
@@ -51,33 +51,33 @@ def regression_test_statistics(results):
     # Verifica mean_rho
     error_mean_rho = abs(mean_rho - BASELINE['mean_rho'])
     if error_mean_rho <= BASELINE['tolerance_mean']:
-        print(f"   ✓ Mean ρ: {mean_rho:.6f} (baseline: {BASELINE['mean_rho']:.6f}, error: {error_mean_rho:.6f})")
+        print(f"   [OK] Mean rho: {mean_rho:.6f} (baseline: {BASELINE['mean_rho']:.6f}, error: {error_mean_rho:.6f})")
     else:
-        print(f"   ❌ Mean ρ cambiato: {mean_rho:.6f} vs {BASELINE['mean_rho']:.6f} (error: {error_mean_rho:.6f})")
+        print(f"   [FAIL] Mean rho cambiato: {mean_rho:.6f} vs {BASELINE['mean_rho']:.6f} (error: {error_mean_rho:.6f})")
         all_passed = False
     
     # Verifica mean_K
     error_mean_K = abs(mean_K - BASELINE['mean_K'])
     if error_mean_K <= BASELINE['tolerance_mean']:
-        print(f"   ✓ Mean K: {mean_K:.6f} (baseline: {BASELINE['mean_K']:.6f}, error: {error_mean_K:.6f})")
+        print(f"   [OK] Mean K: {mean_K:.6f} (baseline: {BASELINE['mean_K']:.6f}, error: {error_mean_K:.6f})")
     else:
-        print(f"   ❌ Mean K cambiato: {mean_K:.6f} vs {BASELINE['mean_K']:.6f} (error: {error_mean_K:.6f})")
+        print(f"   [FAIL] Mean K cambiato: {mean_K:.6f} vs {BASELINE['mean_K']:.6f} (error: {error_mean_K:.6f})")
         all_passed = False
     
     # Verifica range rho
     error_min_rho = abs(min_rho - BASELINE['min_rho'])
     error_max_rho = abs(max_rho - BASELINE['max_rho'])
     if error_min_rho <= BASELINE['tolerance_range'] and error_max_rho <= BASELINE['tolerance_range']:
-        print(f"   ✓ Range ρ: [{min_rho:.6f}, {max_rho:.6f}] (baseline: [{BASELINE['min_rho']:.6f}, {BASELINE['max_rho']:.6f}])")
+        print(f"   [OK] Range rho: [{min_rho:.6f}, {max_rho:.6f}] (baseline: [{BASELINE['min_rho']:.6f}, {BASELINE['max_rho']:.6f}])")
     else:
-        print(f"   ⚠ Range ρ cambiato: [{min_rho:.6f}, {max_rho:.6f}] vs [{BASELINE['min_rho']:.6f}, {BASELINE['max_rho']:.6f}]")
+        print(f"   [WARN] Range rho cambiato: [{min_rho:.6f}, {max_rho:.6f}] vs [{BASELINE['min_rho']:.6f}, {BASELINE['max_rho']:.6f}]")
         # Non fallisce, solo warning
     
     # Verifica numero di computazioni
     if len(results) == BASELINE['n_computations']:
-        print(f"   ✓ Numero di computazioni: {len(results)} (baseline: {BASELINE['n_computations']})")
+        print(f"   [OK] Numero di computazioni: {len(results)} (baseline: {BASELINE['n_computations']})")
     else:
-        print(f"   ⚠ Numero di computazioni cambiato: {len(results)} vs {BASELINE['n_computations']}")
+            print(f"   [WARN] Numero di computazioni cambiato: {len(results)} vs {BASELINE['n_computations']}")
         # Non fallisce, solo warning
     
     return all_passed
@@ -96,16 +96,16 @@ def regression_test_structure(results):
     for i, r in enumerate(results):
         missing_fields = [f for f in required_fields if f not in r]
         if missing_fields:
-            print(f"   ❌ Risultato {i} manca campi: {missing_fields}")
+            print(f"   [FAIL] Risultato {i} manca campi: {missing_fields}")
             all_passed = False
         else:
             # Verifica che errors_11 e errors_22 abbiano la stessa lunghezza
             if len(r['errors_11']) != len(r['errors_22']):
-                print(f"   ❌ Risultato {i}: lunghezze errori diverse")
+                print(f"   [FAIL] Risultato {i}: lunghezze errori diverse")
                 all_passed = False
     
     if all_passed:
-        print(f"   ✓ Tutti i {len(results)} risultati hanno struttura corretta")
+        print(f"   [OK] Tutti i {len(results)} risultati hanno struttura corretta")
     
     return all_passed
 
@@ -122,11 +122,11 @@ def regression_test_formulas(results):
         K_theoretical = 4.0 / (1.0 + rho)**2
         
         if abs(K_computed - K_theoretical) > 1e-5:
-            print(f"   ❌ Formula K errata per ρ = {rho:.6f}")
+            print(f"   [FAIL] Formula K errata per rho = {rho:.6f}")
             all_passed = False
     
     if all_passed:
-        print(f"   ✓ Tutte le formule K sono corrette")
+        print(f"   [OK] Tutte le formule K sono corrette")
     
     return all_passed
 
@@ -136,9 +136,9 @@ def main():
     print("TEST DI REGRESSIONE")
     print("=" * 70)
     print(f"\nBaseline:")
-    print(f"  Mean ρ: {BASELINE['mean_rho']:.6f}")
+    print(f"  Mean rho: {BASELINE['mean_rho']:.6f}")
     print(f"  Mean K: {BASELINE['mean_K']:.6f}")
-    print(f"  Range ρ: [{BASELINE['min_rho']:.6f}, {BASELINE['max_rho']:.6f}]")
+    print(f"  Range rho: [{BASELINE['min_rho']:.6f}, {BASELINE['max_rho']:.6f}]")
     print(f"  N computations: {BASELINE['n_computations']}")
     
     results = load_results()
@@ -155,9 +155,9 @@ def main():
     
     print("\n" + "=" * 70)
     if all_passed:
-        print("✓ TUTTI I TEST DI REGRESSIONE PASSATI!")
+        print("[OK] TUTTI I TEST DI REGRESSIONE PASSATI!")
     else:
-        print("❌ ALCUNI TEST FALLITI")
+        print("[FAIL] ALCUNI TEST FALLITI")
     print("=" * 70)
     
     return all_passed

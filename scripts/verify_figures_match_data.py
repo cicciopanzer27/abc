@@ -32,7 +32,7 @@ def verify_correlation_distribution_figure(results):
     
     # Verifica che ci siano abbastanza dati
     assert len(rhos) == 21, f"Dovrebbero esserci 21 risultati, trovati {len(rhos)}"
-    print(f"   ✓ Numero di risultati: {len(rhos)}")
+        print(f"   [OK] Numero di risultati: {len(rhos)}")
     
     # Verifica statistiche
     mean_rho = np.mean(rhos)
@@ -40,12 +40,12 @@ def verify_correlation_distribution_figure(results):
     
     # Verifica che mean_rho sia alta (come nei risultati reali)
     if mean_rho > 0.7:
-        print(f"   ✓ Mean ρ = {mean_rho:.6f} è alta (come atteso)")
+        print(f"   [OK] Mean rho = {mean_rho:.6f} è alta (come atteso)")
     else:
-        print(f"   ⚠ Warning: Mean ρ = {mean_rho:.6f} è più bassa del previsto")
+        print(f"   [WARN] Warning: Mean rho = {mean_rho:.6f} è più bassa del previsto")
     
-    print(f"   ✓ Std ρ = {std_rho:.6f}")
-    print(f"   ✓ Range: [{np.min(rhos):.6f}, {np.max(rhos):.6f}]")
+    print(f"   [OK] Std rho = {std_rho:.6f}")
+    print(f"   [OK] Range: [{np.min(rhos):.6f}, {np.max(rhos):.6f}]")
     
     return True
 
@@ -63,7 +63,7 @@ def verify_scatter_errors_figure(results):
             break
     
     if main_result is None:
-        print("   ❌ Esempio principale non trovato")
+        print("   [FAIL] Esempio principale non trovato")
         return False
     
     errors_11 = main_result['errors_11']
@@ -73,22 +73,22 @@ def verify_scatter_errors_figure(results):
     # Verifica che ci siano 12 errori (l-1 = 12)
     assert len(errors_11) == 12, f"Dovrebbero esserci 12 errori, trovati {len(errors_11)}"
     assert len(errors_22) == 12, f"Dovrebbero esserci 12 errori, trovati {len(errors_22)}"
-    print(f"   ✓ Numero di errori: {len(errors_11)}")
+    print(f"   [OK] Numero di errori: {len(errors_11)}")
     
     # Verifica che ρ sia alto (come nei risultati reali)
     if rho > 0.9:
-        print(f"   ✓ ρ = {rho:.6f} è alto (come atteso)")
+        print(f"   [OK] rho = {rho:.6f} è alto (come atteso)")
     else:
-        print(f"   ⚠ Warning: ρ = {rho:.6f} è più basso del previsto")
+        print(f"   [WARN] Warning: rho = {rho:.6f} è più basso del previsto")
     
     # Verifica che errors_11 siano più grandi di errors_22
     max_11 = max(abs(e) for e in errors_11)
     max_22 = max(abs(e) for e in errors_22)
     
     if max_11 > max_22:
-        print(f"   ✓ errors_11 ({max_11:.6f}) > errors_22 ({max_22:.6f})")
+        print(f"   [OK] errors_11 ({max_11:.6f}) > errors_22 ({max_22:.6f})")
     else:
-        print(f"   ⚠ Warning: errors_11 ({max_11:.6f}) <= errors_22 ({max_22:.6f})")
+        print(f"   [WARN] Warning: errors_11 ({max_11:.6f}) <= errors_22 ({max_22:.6f})")
     
     return True
 
@@ -105,18 +105,18 @@ def verify_cancellation_vs_correlation_figure(results):
     for rho, K in zip(rhos, Ks):
         K_theoretical = 4.0 / (1.0 + rho)**2
         if abs(K - K_theoretical) > 1e-5:
-            print(f"   ❌ K mismatch per ρ = {rho:.6f}")
+            print(f"   [FAIL] K mismatch per rho = {rho:.6f}")
             all_valid = False
     
     if all_valid:
-        print(f"   ✓ Tutti i {len(rhos)} punti seguono K = 4/(1+ρ)²")
+        print(f"   [OK] Tutti i {len(rhos)} punti seguono K = 4/(1+rho)^2")
     
     # Verifica che ci sia almeno un punto con ρ = 0
     has_zero = any(abs(rho) < 1e-6 for rho in rhos)
     if has_zero:
-        print(f"   ✓ Trovato punto con ρ ≈ 0 (K = 4)")
+        print(f"   [OK] Trovato punto con rho ≈ 0 (K = 4)")
     else:
-        print(f"   ⚠ Nessun punto con ρ = 0 trovato")
+        print(f"   [WARN] Nessun punto con rho = 0 trovato")
     
     return all_valid
 
@@ -134,7 +134,7 @@ def verify_error_sequences_figure(results):
             break
     
     if main_result is None:
-        print("   ❌ Esempio principale non trovato")
+        print("   [FAIL] Esempio principale non trovato")
         return False
     
     errors_11 = main_result['errors_11']
@@ -145,16 +145,16 @@ def verify_error_sequences_figure(results):
         is_increasing = all(errors_11[i] <= errors_11[i+1] or abs(errors_11[i] - errors_11[i+1]) < 0.1 
                            for i in range(len(errors_11)-1))
         if is_increasing or max(errors_11) > min(errors_11):
-            print(f"   ✓ errors_11 mostrano crescita (range: [{min(errors_11):.6f}, {max(errors_11):.6f}])")
+            print(f"   [OK] errors_11 mostrano crescita (range: [{min(errors_11):.6f}, {max(errors_11):.6f}])")
         else:
-            print(f"   ⚠ Warning: errors_11 non mostrano crescita chiara")
+            print(f"   [WARN] Warning: errors_11 non mostrano crescita chiara")
     
     # Verifica che errors_22 siano piccoli
     max_22 = max(abs(e) for e in errors_22)
     if max_22 < 0.1:
-        print(f"   ✓ errors_22 sono piccoli (max: {max_22:.6f})")
+        print(f"   [OK] errors_22 sono piccoli (max: {max_22:.6f})")
     else:
-        print(f"   ⚠ Warning: errors_22 sono grandi (max: {max_22:.6f})")
+        print(f"   [WARN] Warning: errors_22 sono grandi (max: {max_22:.6f})")
     
     return True
 
@@ -171,19 +171,19 @@ def verify_rho_across_primes_figure(results):
             curves[curve_key] = []
         curves[curve_key].append((r['prime'], r['rho']))
     
-    print(f"   ✓ Trovate {len(curves)} curve diverse")
+    print(f"   [OK] Trovate {len(curves)} curve diverse")
     
     # Verifica che ogni curva abbia dati per 7 primi
     for curve_name, data in curves.items():
         if len(data) == 7:
-            print(f"   ✓ {curve_name[:30]}: 7 primi")
+            print(f"   [OK] {curve_name[:30]}: 7 primi")
         else:
-            print(f"   ⚠ {curve_name[:30]}: {len(data)} primi (attesi 7)")
+            print(f"   [WARN] {curve_name[:30]}: {len(data)} primi (attesi 7)")
     
     # Verifica che ρ sia generalmente alto
     all_rhos = [r['rho'] for r in results]
     high_rho_count = sum(1 for rho in all_rhos if rho > 0.8)
-    print(f"   ✓ {high_rho_count}/{len(all_rhos)} casi con ρ > 0.8")
+    print(f"   [OK] {high_rho_count}/{len(all_rhos)} casi con rho > 0.8")
     
     return True
 
@@ -209,9 +209,9 @@ def main():
     
     print("\n" + "=" * 70)
     if all_passed:
-        print("✓ TUTTE LE VERIFICHE DELLE FIGURE PASSATE!")
+        print("[OK] TUTTE LE VERIFICHE DELLE FIGURE PASSATE!")
     else:
-        print("❌ ALCUNE VERIFICHE FALLITE")
+        print("[FAIL] ALCUNE VERIFICHE FALLITE")
     print("=" * 70)
     
     return all_passed
