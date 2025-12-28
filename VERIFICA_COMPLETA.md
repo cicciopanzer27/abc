@@ -61,10 +61,13 @@ Script master che esegue tutte le verifiche:
 
 ## Come Eseguire le Verifiche
 
+**IMPORTANTE:** Gli script di verifica sono nella directory `C:\Users\jecho\Documents\GitHub\abc\scripts\`. 
+Esegui sempre i comandi dalla directory principale del repository GitHub.
+
 ### Verifica Completa
 ```bash
 cd C:\Users\jecho\Documents\GitHub\abc
-python scripts/verify_all.py
+python scripts/verify_all_fixed.py
 ```
 
 ### Verifiche Individuali
