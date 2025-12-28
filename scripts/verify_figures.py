@@ -133,7 +133,7 @@ def verify_correlation_analysis():
     # Allow some tolerance since we might not have exactly rho=0 in the array
     if abs(rho_at_zero) < 0.01:
         assert abs(K_at_zero - 4) < 0.01, \
-            f"At ρ≈{rho_at_zero:.6f}, K should be ≈4, got {K_at_zero:.6f}"
+            f"At rho~{rho_at_zero:.6f}, K should be ~4, got {K_at_zero:.6f}"
     else:
         # If no point near zero, just verify the formula holds
         K_expected = 4.0 / (1.0 + rho_at_zero)**2
