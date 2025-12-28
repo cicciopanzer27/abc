@@ -93,7 +93,7 @@ def verify_parameter_optimization():
         
         # Should be sublinear (error/h should go to 0 as h increases)
         error_per_h = error / h
-            assert error_per_h[-1] < error_per_h[0], \
+        assert error_per_h[-1] < error_per_h[0], \
             f"For alpha={alpha}, error/h should decrease"
         
         # Should be less than h for large h (sublinear asymptotically)
