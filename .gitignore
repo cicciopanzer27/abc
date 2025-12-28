@@ -22,3 +22,12 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.log
+
+# Internal documentation and notes
+COMMIT_MESSAGE.txt
+PUSH_INSTRUCTIONS.md
+RIEPILOGO_COMPLETO.md
+VERIFICA_FINALE.md
+VERIFICA_PUSH.md
+CATALOG.md
+*.md.backup
