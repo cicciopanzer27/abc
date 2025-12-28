@@ -2,23 +2,22 @@
 -- This file imports all major components of the framework
 
 -- Core structures
--- import Frobenioid.Basic
--- import Borel.Definition
+import Frobenioid.Basic
+import Borel.Definition
 
 -- Main theorems
--- import Correspondence.Main
--- import SpectralDecoupling.Main
--- import Height.ErrorBounds
+import Correspondence.Main
+import Borel.SpectralDecoupling
+import Height.ErrorBounds
 
 -- Extensions
--- import Perfectoid.BorelCompatibility
--- import LogThetaLattice.Definition
+import Perfectoid.BorelCompatibility
+import LogThetaLattice.Definition
+import LogThetaLattice.BorelPreservation
+import Borel.HigherDimensions
 
 -- Examples
--- import Examples.Correlation
--- import Examples.ToyModel
-
--- TODO: Uncomment imports as modules are implemented
+import Examples.Correlation
 
 /-!
 # Borel-IUT: Formal Verification in Lean 4
