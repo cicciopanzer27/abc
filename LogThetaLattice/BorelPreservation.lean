@@ -13,7 +13,7 @@ namespace LogThetaLattice
 variable {K : Type*} [Field K]
 
 /-- All Theta-links preserve Borel structure -/
-theorem theta_links_preserve_borel 
+theorem theta_links_preserve_borel
     (j : ℕ) (u : K) (b : K) :
     thetaLinkMorphism j u b ∈ Borel.Borel K :=
   by
@@ -38,14 +38,14 @@ theorem composition_preserves_borel
   /- Proof: Product of upper triangular matrices is upper triangular -/
 
 /-- All morphisms in a log-theta-lattice preserve Borel structure -/
-theorem lattice_borel_preservation 
+theorem lattice_borel_preservation
     (L : LogThetaLattice) :
     ∀ (HT₁ HT₂ : L.theaters),
     (L.thetaLinks HT₁ HT₂ ∨ L.logLinks HT₁ HT₂) →
     ∃ (M : Matrix (Fin 2) (Fin 2) K),
     M 1 0 = 0 :=
   sorry
-  /- Proof: By induction on lattice structure, using 
+  /- Proof: By induction on lattice structure, using
      theta_links_preserve_borel and log_links_preserve_borel -/
 
 end LogThetaLattice

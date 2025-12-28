@@ -29,7 +29,7 @@ theorem dimensional_reduction_ratio (n : ℕ) :
 
 /-- Asymptotic limit of reduction ratio -/
 theorem asymptotic_reduction_limit :
-    Filter.Tendsto 
+    Filter.Tendsto
       (fun n : ℕ => (n + 1 : ℝ) / (2 * n))
       Filter.atTop
       (𝓝 (1/2 : ℝ)) :=

@@ -1,7 +1,7 @@
 /-!
 # Log-Theta-Lattice Definition
 
-This module defines the log-theta-lattice structure, which is the central 
+This module defines the log-theta-lattice structure, which is the central
 structure connecting multiple Hodge theaters in IUT.
 -/
 
