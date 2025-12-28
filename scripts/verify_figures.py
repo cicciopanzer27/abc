@@ -169,7 +169,7 @@ def verify_higher_dimensions():
     Checks that:
     - dim(GL_n) = n²
     - dim(B_n) = n(n+1)/2
-    - Reduction ratio → 1/2 as n → ∞
+    - Reduction ratio -> 1/2 as n -> infinity
     """
     n = np.arange(2, 11)
     
@@ -195,7 +195,7 @@ def verify_higher_dimensions():
     print("[OK] Higher dimensions figure verified")
     print(f"  dim(GL_n) = n² confirmed")
     print(f"  dim(B_n) = n(n+1)/2 confirmed")
-    print(f"  Reduction ratio → 0.5 as n → ∞ confirmed")
+    print(f"  Reduction ratio -> 0.5 as n -> infinity confirmed")
     
     return True
 
