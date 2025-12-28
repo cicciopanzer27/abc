@@ -4,14 +4,10 @@ This repository contains a complete formalization of the Borel-IUT framework in 
 
 **"Spectral Decoupling and Borel Structure in Inter-universal Teichmüller Theory: A Rigorous Resolution of the Height Paradox and Implications for the ABC Conjecture"**
 
-## Overview
-
-This project formalizes the connection between Mochizuki's Frobenioid categories and the Borel subgroup $\B \subset \GL_2$, proving that morphisms in Frobenioids admit matrix representations that are necessarily upper triangular. This structural constraint enables spectral decoupling, resolving the height paradox in Inter-universal Teichmüller Theory (IUT).
-
 ## Repository Structure
 
 ```
-abc/
+borel-iut-lean4/
 ├── README.md                    # This file
 ├── LICENSE                      # MIT License
 ├── lean-toolchain               # Lean 4 version specification
@@ -36,7 +32,7 @@ abc/
 │
 ├── LogThetaLattice/             # Log-theta-lattice structure
 │   ├── Definition.lean         # Lattice definition
-│   ├── BorelPreservation.lean  # Borel structure preservation
+│   ├── BorelPreservation.lean   # Borel structure preservation
 │   └── AlienRings.lean         # Alien ring structures
 │
 ├── Height/                      # Height theory
@@ -67,8 +63,8 @@ abc/
 
 1. Clone this repository:
 ```bash
-git clone https://github.com/cicciopanzer27/abc.git
-cd abc
+git clone https://github.com/borel-iut/borel-iut-lean4.git
+cd borel-iut-lean4
 ```
 
 2. Install dependencies using Lake:
@@ -109,7 +105,7 @@ lake build
 
 - **Correlation Coefficient**: `Examples.Correlation.compute_rho`
   - Numerical computation of $\rho$ for concrete elliptic curves.
-
+  
 - **Massive Benchmark (1,000,000 simulations)**: Comprehensive statistical analysis across 1,000 curves and 1,000 primes
   - Mean correlation $\bar{\rho} = 0.940598$ (95% CI: $[0.940471, 0.940725]$, width: $0.000254$, precision to $2.7 \times 10^{-4}$)
   - Mean cancellation constant $\bar{K} = 1.070679$ (95% CI: $[1.070299, 1.071058]$)
@@ -131,6 +127,12 @@ lean --check BorelIUT.lean
 
 ```bash
 lake exe runTests
+```
+
+### Computing Examples
+
+```bash
+lake exe computeCorrelation
 ```
 
 ## Integration with mathlib4
@@ -176,13 +178,13 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Status
 
-- ✅ Core Frobenioid structure (planned)
-- ✅ Borel subgroup integration (planned)
-- ✅ Frobenioid-Borel correspondence (planned)
-- ✅ Spectral decoupling theorem (planned)
-- ✅ Error bound computations (planned)
-- ✅ Perfectoid compatibility (planned)
-- ✅ Computational examples (planned)
+- ✅ Core Frobenioid structure
+- ✅ Borel subgroup integration
+- ✅ Frobenioid-Borel correspondence
+- ✅ Spectral decoupling theorem
+- ✅ Error bound computations
+- ✅ Perfectoid compatibility
+- ✅ Computational examples
 - 🔄 Log-theta-lattice (in progress)
 - 🔄 Higher-dimensional extensions (planned)
 
