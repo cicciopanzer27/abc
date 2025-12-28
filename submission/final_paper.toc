@@ -41,12 +41,12 @@
 \contentsline {subsection}{\numberline {10.5}Comparison with State-of-the-Art}{45}{}%
 \contentsline {section}{\numberline {11}Extensions to Higher Dimensions and Other Arithmetic Invariants}{46}{}%
 \contentsline {subsection}{\numberline {11.1}Higher-Dimensional Borel Subgroups}{46}{}%
-\contentsline {subsection}{\numberline {11.2}Spectral Decoupling in Higher Dimensions}{48}{}%
+\contentsline {subsection}{\numberline {11.2}Spectral Decoupling in Higher Dimensions}{49}{}%
 \contentsline {subsection}{\numberline {11.3}Other Arithmetic Invariants}{49}{}%
 \contentsline {subsubsection}{\numberline {11.3.1}Faltings Height}{49}{}%
-\contentsline {subsubsection}{\numberline {11.3.2}Canonical Height}{49}{}%
+\contentsline {subsubsection}{\numberline {11.3.2}Canonical Height}{50}{}%
 \contentsline {subsection}{\numberline {11.4}General Framework}{50}{}%
-\contentsline {subsubsection}{\numberline {11.4.1}Application to the Szpiro Conjecture}{50}{}%
-\contentsline {subsubsection}{\numberline {11.4.2}Application to the Vojta Conjecture}{51}{}%
-\contentsline {section}{\numberline {12}Conclusions}{52}{}%
+\contentsline {subsubsection}{\numberline {11.4.1}Application to the Szpiro Conjecture}{51}{}%
+\contentsline {subsubsection}{\numberline {11.4.2}Application to the Vojta Conjecture}{52}{}%
+\contentsline {section}{\numberline {12}Conclusions}{53}{}%
 \contentsline {subsection}{\numberline {12.1}Reflection on Formal Language and the Decade-Long Misunderstanding}{53}{}%
