@@ -160,10 +160,11 @@ If you use this formalization in your research, please cite:
 
 ```
 @article{borel-iut-2025,
-  title={Spectral Decoupling and Borel Structure in Inter-universal Teichmüller Theory},
+  title={Spectral Decoupling and Borel Structure in Inter-universal Teichmüller Theory: A Rigorous Resolution of the Height Paradox and Implications for the ABC Conjecture},
   author={M.F.},
-  journal={[Journal]},
-  year={2025}
+  journal={arXiv preprint},
+  year={2025},
+  note={Available at \url{https://github.com/cicciopanzer27/abc}}
 }
 ```
 
