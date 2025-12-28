@@ -1,0 +1,16 @@
+name: Lean CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: leanprover-community/lean-checkup@v1
+        with:
+          lean_version: 'leanprover/lean4:v4.9.0'
