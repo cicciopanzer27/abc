@@ -1,0 +1,24 @@
+# Lean build artifacts
+build/
+lake-packages/
+*.olean
+*.c
+*.o
+*.so
+*.dylib
+*.dll
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.log
