@@ -37,13 +37,13 @@
 \contentsline {subsection}{\numberline {10.1}Real Complete IUT Construction: Step-by-Step Computation}{40}{}%
 \contentsline {subsection}{\numberline {10.2}ABC Triples Database: Computational Verification}{43}{}%
 \contentsline {subsection}{\numberline {10.3}Elliptic Curves Benchmark: Robustness Across Multiple Curves}{44}{}%
-\contentsline {subsection}{\numberline {10.4}Performance Analysis: Computational Complexity}{44}{}%
+\contentsline {subsection}{\numberline {10.4}Performance Analysis: Computational Complexity}{45}{}%
 \contentsline {subsection}{\numberline {10.5}Comparison with State-of-the-Art}{45}{}%
 \contentsline {section}{\numberline {11}Extensions to Higher Dimensions and Other Arithmetic Invariants}{46}{}%
 \contentsline {subsection}{\numberline {11.1}Higher-Dimensional Borel Subgroups}{46}{}%
 \contentsline {subsection}{\numberline {11.2}Spectral Decoupling in Higher Dimensions}{49}{}%
-\contentsline {subsection}{\numberline {11.3}Other Arithmetic Invariants}{49}{}%
-\contentsline {subsubsection}{\numberline {11.3.1}Faltings Height}{49}{}%
+\contentsline {subsection}{\numberline {11.3}Other Arithmetic Invariants}{50}{}%
+\contentsline {subsubsection}{\numberline {11.3.1}Faltings Height}{50}{}%
 \contentsline {subsubsection}{\numberline {11.3.2}Canonical Height}{50}{}%
 \contentsline {subsection}{\numberline {11.4}General Framework}{50}{}%
 \contentsline {subsubsection}{\numberline {11.4.1}Application to the Szpiro Conjecture}{51}{}%
