@@ -93,8 +93,8 @@ def verify_parameter_optimization():
         
         # Should be sublinear (error/h should go to 0 as h increases)
         error_per_h = error / h
-        assert error_per_h[-1] < error_per_h[0], \
-            f"For α={alpha}, error/h should decrease"
+            assert error_per_h[-1] < error_per_h[0], \
+            f"For alpha={alpha}, error/h should decrease"
         
         # Should be less than h for large h (sublinear asymptotically)
         # For small h, error might be >= h, but should become < h as h increases
@@ -111,8 +111,8 @@ def verify_parameter_optimization():
                 assert False, f"For α={alpha}, error/h should decrease for large h"
     
     print("[OK] Parameter optimization figure verified")
-    print(f"  All α < 1 yield sublinear error terms")
-    print(f"  Optimal choice α = 0.5 confirmed")
+    print(f"  All alpha < 1 yield sublinear error terms")
+    print(f"  Optimal choice alpha = 0.5 confirmed")
     
     return True
 
