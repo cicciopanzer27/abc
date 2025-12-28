@@ -134,7 +134,7 @@ def test_multiple_primes():
             print(f"p = {r['prime']:3d}: rho = {r['mean_rho']:8.6f} +/- {r['std_rho']:8.6f}  {status}")
         
         near_zero_count = sum(1 for r in results if r['near_zero'])
-        print(f"\nNear zero (|ρ| < 0.01): {near_zero_count}/{len(results)} ({100*near_zero_count/len(results):.1f}%)")
+        print(f"\nNear zero (|rho| < 0.01): {near_zero_count}/{len(results)} ({100*near_zero_count/len(results):.1f}%)")
     
     return results
 
