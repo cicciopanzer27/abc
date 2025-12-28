@@ -137,7 +137,7 @@ def construct_hodge_theater_step_by_step(curve: EllipticCurve, p: int, l: int) -
         
         print(f"    - Expected: (M_11, M_22) = ({expected_11:.6f}, {expected_22:.6f})")
         print(f"    - Actual:   (M_11, M_22) = ({M_11:.6f}, {M_22:.6f})")
-        print(f"    - Errors:   (ε_11, ε_22) = ({error_11:.6f}, {error_22:.6f})")
+        print(f"    - Errors:   (eps_11, eps_22) = ({error_11:.6f}, {error_22:.6f})")
     
     print(f"\n{'-'*70}")
     print(f"STEP 3: Accumulate errors")
@@ -246,34 +246,34 @@ def compute_correlation_real(hodge_theater: HodgeTheater) -> Tuple[float, Dict]:
     n = len(epsilon_11)
     
     print(f"STEP 1: Extract error sequences")
-    print(f"  - ε_11: {n} entries")
-    print(f"  - ε_22: {n} entries")
+    print(f"  - eps_11: {n} entries")
+    print(f"  - eps_22: {n} entries")
     print(f"  - First few values:")
     for i in range(min(3, n)):
-        print(f"      ε_11[{i}] = {epsilon_11[i]:.6f}, ε_22[{i}] = {epsilon_22[i]:.6f}")
+        print(f"      eps_11[{i}] = {epsilon_11[i]:.6f}, eps_22[{i}] = {epsilon_22[i]:.6f}")
     
     # STEP 2: Compute means
     mean_11 = sum(epsilon_11) / n
     mean_22 = sum(epsilon_22) / n
     
     print(f"\nSTEP 2: Compute means")
-    print(f"  - Mean(ε_11) = {mean_11:.6f}")
-    print(f"  - Mean(ε_22) = {mean_22:.6f}")
+    print(f"  - Mean(eps_11) = {mean_11:.6f}")
+    print(f"  - Mean(eps_22) = {mean_22:.6f}")
     
     # STEP 3: Compute covariance
     cov = sum((epsilon_11[i] - mean_11) * (epsilon_22[i] - mean_22) 
               for i in range(n)) / n
     
     print(f"\nSTEP 3: Compute covariance")
-    print(f"  - Cov(ε_11, ε_22) = {cov:.6f}")
+    print(f"  - Cov(eps_11, eps_22) = {cov:.6f}")
     
     # STEP 4: Compute variances
     var_11 = sum((epsilon_11[i] - mean_11)**2 for i in range(n)) / n
     var_22 = sum((epsilon_22[i] - mean_22)**2 for i in range(n)) / n
     
     print(f"\nSTEP 4: Compute variances")
-    print(f"  - Var(ε_11) = {var_11:.6f}")
-    print(f"  - Var(ε_22) = {var_22:.6f}")
+    print(f"  - Var(eps_11) = {var_11:.6f}")
+    print(f"  - Var(eps_22) = {var_22:.6f}")
     
     # STEP 5: Compute correlation
     if var_11 * var_22 > 0:
@@ -282,16 +282,16 @@ def compute_correlation_real(hodge_theater: HodgeTheater) -> Tuple[float, Dict]:
         rho = 0.0
     
     print(f"\nSTEP 5: Compute correlation coefficient")
-    print(f"  - ρ = Cov / sqrt(Var_11 * Var_22)")
-    print(f"  - ρ = {cov:.6f} / sqrt({var_11:.6f} * {var_22:.6f})")
-    print(f"  - ρ = {rho:.6f}")
+    print(f"  - rho = Cov / sqrt(Var_11 * Var_22)")
+    print(f"  - rho = {cov:.6f} / sqrt({var_11:.6f} * {var_22:.6f})")
+    print(f"  - rho = {rho:.6f}")
     
     # STEP 6: Compute cancellation constant
     K = 4.0 / (1.0 + rho)**2
     
     print(f"\nSTEP 6: Compute cancellation constant")
-    print(f"  - K = 4 / (1 + ρ)²")
-    print(f"  - K = 4 / (1 + {rho:.6f})²")
+    print(f"  - K = 4 / (1 + rho)^2")
+    print(f"  - K = 4 / (1 + {rho:.6f})^2")
     print(f"  - K = {K:.6f}")
     
     stats_dict = {
@@ -334,8 +334,8 @@ def main():
     print(f"Cancellation constant:   K = {stats['K']:.6f}")
     print(f"Number of steps:         n = {stats['n']}")
     print(f"Covariance:              Cov = {stats['cov']:.6f}")
-    print(f"Variance ε_11:           Var_11 = {stats['var_11']:.6f}")
-    print(f"Variance ε_22:           Var_22 = {stats['var_22']:.6f}")
+    print(f"Variance eps_11:         Var_11 = {stats['var_11']:.6f}")
+    print(f"Variance eps_22:         Var_22 = {stats['var_22']:.6f}")
     print("="*70)
     
     return hodge_theater, rho, stats
