@@ -108,7 +108,7 @@ def verify_parameter_optimization():
             if np.mean(tail_ratio) < 0.9:
                 pass  # Tail is sublinear
             else:
-                assert False, f"For α={alpha}, error/h should decrease for large h"
+                assert False, f"For alpha={alpha}, error/h should decrease for large h"
     
     print("[OK] Parameter optimization figure verified")
     print(f"  All alpha < 1 yield sublinear error terms")
@@ -120,7 +120,7 @@ def verify_correlation_analysis():
     """
     Verify Figure 9: Cancellation Constant vs Correlation Coefficient.
     
-    Checks that K = 4/(1+ρ)² behaves correctly.
+    Checks that K = 4/(1+rho)^2 behaves correctly.
     """
     rho = np.linspace(-0.2, 0.2, 1000)
     K = 4 / (1 + rho)**2
@@ -156,9 +156,9 @@ def verify_correlation_analysis():
             "K formula should hold for all ρ"
     
     print("[OK] Correlation analysis figure verified")
-    print(f"  K = 4/(1+ρ)² formula confirmed")
-    print(f"  At ρ=0: K = 4")
-    print(f"  For ρ in [-0.1, 0.1]: K in [3.31, 4.94]")
+    print(f"  K = 4/(1+rho)^2 formula confirmed")
+    print(f"  At rho=0: K = 4")
+    print(f"  For rho in [-0.1, 0.1]: K in [3.31, 4.94]")
     
     return True
 
